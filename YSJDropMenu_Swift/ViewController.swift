@@ -9,9 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var dropMenu        :YSJDropMenuView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        dropMenu = YSJDropMenuView.init(frame: CGRectMake(0, 100, kScreenWidth, 40), Items: ["综合排序","综合排序","综合排序","综合排序","综合排序"], menuItem: ["综合排序","价格从低到高"])
+        dropMenu.delegate = self
+        self.view.addSubview(dropMenu)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -20,6 +26,16 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+}
 
+extension ViewController : YSJDropMenuViewDelegate {
+    
+    func  dropMenuselectedItem(index: NSInteger) {
+        print(index)
+    }
+    
+    func dropMenuSelectedTitle(index: NSInteger) {
+        print(index)
+    }
 }
 
